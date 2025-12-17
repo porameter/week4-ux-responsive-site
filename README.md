@@ -1,5 +1,3 @@
-# week4-ux-responsive-site
-week4-ux-responsive-site
 ENGCE301 – Week 4 LAB
 HTML, CSS, Responsive Design + UX Thinking
 ชื่อผู้ทำ: ปรมเษฐ สุริคำ
