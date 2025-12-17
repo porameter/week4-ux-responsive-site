@@ -147,14 +147,6 @@ GitHub Pages URL:
 Screenshots:
 ## 📸 ตัวอย่างหน้าจอการใช้งาน
 
-### Desktop
-<img src="images/desktop.png" width="300" alt="Desktop view">
-
-
-### Mobile
-<img src="images/mobile.png" width="300" alt="Mobile view">
-
-
 
 ## 📝 8. Reflection – สิ่งที่ฉันได้เรียนรู้
 
