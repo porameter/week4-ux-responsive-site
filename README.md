@@ -143,6 +143,7 @@ GitHub Repository:
 https://github.com/porameter/week4-ux-responsive-site
 
 GitHub Pages URL:
+https://porameter.github.io/week4-ux-responsive-site/
 
 Screenshots:
 ## 📸 ตัวอย่างหน้าจอการใช้งาน
