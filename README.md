@@ -145,6 +145,13 @@ https://github.com/porameter/week4-ux-responsive-site
 GitHub Pages URL:
 
 Screenshots:
+## 📸 ตัวอย่างหน้าจอการใช้งาน
+
+### Desktop
+![Desktop View](images/desktop.png)
+
+### Mobile
+![Mobile View](images/mobile.png)
 
 
 ## 📝 8. Reflection – สิ่งที่ฉันได้เรียนรู้
