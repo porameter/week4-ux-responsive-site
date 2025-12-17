@@ -148,10 +148,12 @@ Screenshots:
 ## 📸 ตัวอย่างหน้าจอการใช้งาน
 
 ### Desktop
-![Desktop View](images/desktop.png)
+<img src="images/desktop.png" width="300" alt="Desktop view">
+
 
 ### Mobile
-![Mobile View](images/mobile.png)
+<img src="images/mobile.png" width="300" alt="Mobile view">
+
 
 
 ## 📝 8. Reflection – สิ่งที่ฉันได้เรียนรู้
