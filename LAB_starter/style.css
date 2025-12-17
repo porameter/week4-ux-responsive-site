@@ -1,10 +1,3 @@
-/* 
-  ENGCE301 – Week 4 LAB Starter CSS
-  นักศึกษาต้องแก้ไข/เติมตาม TODO ด้านล่าง
-*/
-
-/* ===== 0. Reset พื้นฐาน ===== */
-
 *,
 *::before,
 *::after {
@@ -13,239 +6,302 @@
   padding: 0;
 }
 
-/* TODO: ลองปรับฟอนต์, สีพื้นหลัง, สีตัวอักษร ให้เข้ากับ Persona */
+:root{
+  --bg: #0f172a;
+  --surface: rgba(15, 23, 42, 0.95);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+
+  --primary: #38bdf8;
+  --primary-2: #60a5fa;
+  --accent: #f97316;
+  --highlight: #facc15;
+
+  --border: rgba(148, 163, 184, 0.35);
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.75);
+  --radius: 0.85rem;
+
+  --maxw: 1100px;
+}
+
+html { 
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+img { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+}
+
+/* ✅ แก้ไขตารางให้ไม่เพี้ยน */
+table { 
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto; /* ✅ ให้ตารางปรับขนาดอัตโนมัติ */
+  font-size: clamp(0.85rem, 2vw, 0.95rem); /* ✅ responsive font */
+}
+
+table th,
+table td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--border);
+  word-wrap: break-word; /* ✅ ป้องกันข้อความยาวล้น */
+  min-width: 80px; /* ✅ กำหนดความกว้างขั้นต่ำ */
+}
+
+table th {
+  background-color: rgba(56, 189, 248, 0.15);
+  font-weight: 600;
+  color: var(--primary);
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #0f172a;
-  color: #e5e7eb;
+  font-family: "Sarabun", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* ทำให้ลิงก์ดูเป็นปกติ และมีสีตอน hover */
-a {
-  color: #38bdf8;
+a { 
+  color: var(--primary); 
   text-decoration: none;
+  word-break: break-word;
 }
+a:hover { text-decoration: underline; }
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* ===== 1. Layout หลักของหน้า ===== */
-
+/* ===== Header ===== */
 .site-header {
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 1.25rem 1.25rem;
+  border-bottom: 1px solid var(--border);
   background: radial-gradient(circle at top left, #1f2937, #020617);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .logo-area h1 {
-  font-size: 1.8rem;
-  color: #f97316;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  color: var(--accent);
+  letter-spacing: 0.2px;
+  word-break: break-word;
 }
 
 .logo-area .tagline {
-  font-size: 0.9rem;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
   color: #cbd5f5;
+  margin-top: 0.25rem;
 }
 
 .main-nav {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .main-nav a {
-  padding: 0.4rem 0.9rem;
+  padding: 0.5rem 1rem;
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+  font-weight: 700;
   border: 1px solid transparent;
-  /* TODO: ปรับสีปุ่มให้เข้ากับธีม persona ของคุณ */
+  background: rgba(56, 189, 248, 0.10);
+  color: var(--text);
+  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+  white-space: nowrap;
 }
 
 .main-nav a:hover {
-  border-color: #38bdf8;
-  background-color: rgba(15, 23, 42, 0.8);
+  border-color: rgba(56, 189, 248, 0.65);
+  background: rgba(56, 189, 248, 0.16);
+  transform: translateY(-1px);
+  text-decoration: none;
 }
 
-/* ตัว container หลักของเนื้อหา */
+/* ===== Main container ===== */
 main {
-  max-width: 1100px;
+  width: 100%;
+  max-width: var(--maxw);
   margin: 0 auto;
   padding: 1.5rem 1.25rem 3rem;
+  overflow-x: hidden;
 }
 
-/* ===== 2. Section และ Card ===== */
-
-.section {
-  margin-top: 2.5rem;
+.section { 
+  margin-top: 2.25rem;
+  overflow-x: hidden;
 }
 
-.section-header {
-  margin-bottom: 1rem;
-}
+.section-header { margin-bottom: 1rem; }
 
 .section-header h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 3.5vw, 1.55rem);
   margin-bottom: 0.25rem;
+  word-break: break-word;
 }
 
 .section-subtitle {
-  font-size: 0.95rem;
-  color: #9ca3af;
+  font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+  color: var(--muted);
 }
 
-/* แถวของ card (ใช้ Flexbox) */
+/* ===== Cards ===== */
 .cards-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
 
-/* Card พื้นฐาน */
 .card {
-  flex: 1 1 250px; /* กว้างปรับได้, อย่างน้อย 250px */
-  background-color: rgba(15, 23, 42, 0.95);
-  border-radius: 0.75rem;
+  background-color: var(--surface);
+  border-radius: var(--radius);
   padding: 1rem 1.2rem;
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow-wrap: break-word;
 }
 
 .card h3 {
-  font-size: 1.15rem;
+  font-size: clamp(1.05rem, 2.8vw, 1.15rem);
   margin-bottom: 0.35rem;
-  color: #facc15;
+  color: var(--highlight);
+  word-break: break-word;
 }
 
 .card p,
-.card li {
-  font-size: 0.95rem;
+.card li { 
+  font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+  word-break: break-word;
 }
 
-/* Section Tasks Layout (ตัวอย่างการทำ 2 คอลัมน์) */
+.card .muted { color: var(--muted); }
+
+/* ===== Tasks ===== */
 .tasks-layout {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
 }
 
-.tasks-list {
-  flex: 1 1 260px;
+.tasks-list h3,
+.tasks-table-wrapper h3 { 
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.05rem, 2.8vw, 1.15rem);
 }
 
-.tasks-list ul {
-  list-style: disc;
-  padding-left: 1.2rem;
+.tasks-list ul { 
+  list-style: disc; 
+  padding-left: 1.2rem; 
 }
 
+.tasks-list li { 
+  margin-bottom: 0.35rem;
+  word-break: break-word;
+}
+
+/* ✅ ตารางเลื่อนได้บนมือถือ - แก้ไขแล้ว */
 .tasks-table-wrapper {
-  flex: 1 1 320px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.75rem;
+  max-width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
 }
 
-.tasks-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
+/* ✅ เพิ่ม scrollbar styling สำหรับตาราง */
+.tasks-table-wrapper::-webkit-scrollbar {
+  height: 8px;
 }
 
-.tasks-table th,
-.tasks-table td {
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  padding: 0.4rem 0.6rem;
+.tasks-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.1);
+  border-radius: 4px;
 }
 
-.tasks-table th {
-  background-color: rgba(30, 64, 175, 0.8);
+.tasks-table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
 }
 
-.tasks-table tbody tr:nth-child(even) {
-  background-color: rgba(15, 23, 42, 0.6);
+.tasks-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-2);
 }
 
-/* Section Extra */
-.extra-layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-/* ===== 3. Footer ===== */
-
-.site-footer {
-  border-top: 1px solid rgba(148, 163, 184, 0.4);
-  padding: 1rem 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #9ca3af;
-}
-
-/* ===== 4. Responsive Design (Media Queries) ===== */
-
-/* 
-  TODO: นักศึกษาต้องเติม/แก้เนื้อหาภายใน media query ให้เหมาะสม
-  โดยดูโจทย์จาก LAB (เน้น Mobile-First)
-*/
-
-/* Tablet และจอที่กว้างไม่มาก (<= 768px) */
+/* ✅ Responsive สำหรับหน้าจอเล็ก */
 @media (max-width: 768px) {
+  table {
+    font-size: 0.85rem;
+  }
+  
+  table th,
+  table td {
+    padding: 0.5rem;
+    min-width: 60px;
+  }
+  
   .site-header {
     flex-direction: column;
     align-items: flex-start;
   }
-
+  
   .main-nav {
     width: 100%;
     justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-
-  main {
-    padding: 1.5rem 1rem 2.5rem;
-  }
-
-  /* TODO: ลองเปลี่ยน layout ของ tasks / extra ให้เป็น 1 คอลัมน์บน tablet */
-  .tasks-layout,
-  .extra-layout {
-    flex-direction: column;
   }
 }
 
-/* Mobile (<= 480px) */
 @media (max-width: 480px) {
-  body {
-    font-size: 0.95rem; /* TODO: นักศึกษาปรับเองได้ ถ้ารู้สึกเล็ก/ใหญ่ไป */
+  table {
+    font-size: 0.8rem;
   }
-
-  .logo-area h1 {
-    font-size: 1.4rem;
+  
+  table th,
+  table td {
+    padding: 0.4rem;
+    min-width: 50px;
   }
+}
 
-  .section-header h2 {
-    font-size: 1.3rem;
-  }
+.site-footer a{
+  color: var(--primary);
+  font-weight: 700;
+}
+.site-footer a:hover{
+  text-decoration: underline;
+}
+.site-footer a{
+  color: var(--primary);
+  font-weight: 700;
+}
+.site-footer a:hover{
+  text-decoration: underline;
+}
+.site-footer{
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 0;            /* ให้ padding อยู่บน-ล่าง */
+  color: var(--muted);
+}
 
-  .cards-row {
-    flex-direction: column;
-  }
-
-  .main-nav {
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .main-nav a {
-    width: 100%;
-  }
-
-  /* TODO: เลือกว่าจะแสดง/ซ่อน element ใดบนจอเล็ก
-     เช่น ถ้าบางตารางอ่านยากบนมือถือ อาจเปลี่ยนเป็น list แทน
-  */
+.footer-inner{
+  width: min(var(--maxw), 100% - 2rem);  /* ✅ ไม่ติดขอบจอ */
+  margin: 0 auto;
+  text-align: center;
+}
+.site-footer{
+  background: rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(6px);
 }
